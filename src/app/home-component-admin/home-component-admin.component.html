@@ -1,0 +1,204 @@
+<div>
+  <div
+    style="
+      width: 1200px;
+      height: 700px;
+      background-color: black;
+      opacity: 0.4;
+      z-index: 3;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    "
+    [style.display]="displaygri"
+  ></div>
+  <div
+    style="
+      width: 400px;
+      height: 550px;
+      background-color: white;
+      position: absolute;
+      z-index: 5;
+      border-radius: 5px;
+      margin-top: 20px;
+      margin-left: 400px;
+    "
+    [style.display]="displayticket"
+  >
+    <p style="margin-left: 40px">
+      Zgjidh studentin per te cilin do krijosh ticket
+    </p>
+    <p style="margin-left: 40px">Emri i pjeses : {{ namepjesticket }}</p>
+
+    <div style="height: 320px; overflow: auto">
+      <div *ngFor="let x of students" style="margin-left: 30px">
+        <div style="display: flex; margin-top: 30px">
+          <input
+            style="width: 20px; height: 20px"
+            type="checkbox"
+            [checked]="x.check"
+            [(ngModel)]="x.check"
+          />
+          <p style="margin-top: 0px; margin-left: 20px">{{ x.username }}</p>
+          <input
+            [(ngModel)]="x.description"
+            style="margin-top: -7px; margin-left: 20px"
+            placeholder="Description"
+          />
+        </div>
+      </div>
+    </div>
+    <p style="color: red; margin-left: 100px">{{ errorticket }}</p>
+    <button style="margin-left: 150px" (click)="clickStudents()">Confirm</button
+    ><br /><br /><button style="margin-left: 150px" (click)="close()">
+      Close
+    </button>
+  </div>
+  <div
+    [style.display]="display1"
+    style="
+      width: 350px;
+      height: 450px;
+      background-color: white;
+      position: absolute;
+      z-index: 5;
+      border-radius: 5px;
+      top: 100px;
+      left: 300px;
+    "
+  >
+    <p style="font-size: 30px; margin-left: 150px">
+      <i class="fas fa-check"></i>
+      Pjesa
+    </p>
+    <div style="display: flex; margin-left: 20px">
+      <p>Name</p>
+      <input
+        [(ngModel)]="name1"
+        style="height: 20px; margin-top: 10px; margin-left: 55px"
+      />
+    </div>
+    <div style="display: flex; margin-left: 20px">
+      <p>Description</p>
+      <input
+        [(ngModel)]="description1"
+        style="height: 20px; margin-top: 10px; margin-left: 20px"
+      />
+    </div>
+    <div style="display: flex; margin-left: 20px">
+      <p>Cmimi</p>
+      <input
+        type="number"
+        [(ngModel)]="Cmimi1"
+        style="height: 20px; margin-top: 10px; margin-left: 50px"
+      />
+    </div>
+    <div style="display: flex; margin-left: 20px">
+      <p>Stock</p>
+      <input
+        type="number"
+        [(ngModel)]="Stock1"
+        style="height: 20px; margin-top: 10px; margin-left: 55px"
+      />
+    </div>
+
+    <button (click)="insertUpdate()" style="margin-left: 140px">Confirm</button
+    ><br /><br />
+    <button (click)="close()" style="margin-left: 145px">Close</button>
+  </div>
+  <div
+    style="
+      width: 1200px;
+      height: 610px;
+      background-color: rgb(34, 191, 34);
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    "
+  >
+    <div
+      style="
+        width: 1200px;
+        height: 60px;
+        display: flex;
+        background-color: rgb(22, 22, 22);
+        color: white;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      "
+    >
+      <p style="margin-right: 50px; margin-left: 40px">Pjeset</p>
+      <p (click)="navigatetoticket()">Ticket</p>
+      <p (click)="navigatetostudent()" style="margin-left: 50px">
+        Ticket per student
+      </p>
+      <p (click)="statistika()" style="margin-left: 50px">Statistika</p>
+      <p (click)="logout()" style="margin-left: 50px">Log out</p>
+    </div>
+    <div style="margin-top: 80px; margin-left: 30px">
+      <input
+        [(ngModel)]="name"
+        style="height: 25px; margin-left: 20px"
+        placeholder="Name"
+      />
+      <input
+        [(ngModel)]="description"
+        style="height: 25px; margin-left: 20px"
+        placeholder="Description"
+      />
+
+      <input
+        [(ngModel)]="Cmimi"
+        type="number"
+        style="height: 25px; margin-left: 20px"
+        placeholder="Cmimi"
+      />
+      <input
+        type="number"
+        [(ngModel)]="Stock"
+        style="height: 25px; margin-left: 20px"
+        placeholder="Stock"
+      />
+      <Button (click)="insert()" style="margin-left: 30px; height: 25px"
+        >Add
+      </Button>
+    </div>
+    <div>
+      <table
+        class="table1"
+        border="1"
+        style="margin-left: 100px; margin-top: 80px"
+      >
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>description</td>
+            <td>Cmimi</td>
+            <td>stock</td>
+            <td style="width: 300px">Operation</td>
+          </tr>
+        </thead>
+        <tbody *ngFor="let x of tabelrow">
+          <tr>
+            <td>
+              {{ x.name }}
+            </td>
+            <td>{{ x.description }}</td>
+            <td>{{ x.cmimi }}</td>
+            <td>{{ x.stock }}</td>
+            <td>
+              <button (click)="update(x)">Update</button
+              ><button (click)="delete(x)" style="margin-left: 10px">
+                Delete pjeset
+              </button>
+              <button style="margin-left: 10px" (click)="openticket(x)">
+                Krijo Ticket
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

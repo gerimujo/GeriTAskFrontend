@@ -1,0 +1,35 @@
+<div class="cont1">
+  <div class="login">
+    <p
+      style="
+        color: white;
+        width: 180px;
+        height: 40px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px white solid;
+        margin-left: 48px;
+      "
+    >
+      Login
+    </p>
+    <input
+      [(ngModel)]="username"
+      style="margin-left: 45px; margin-top: 30px; height: 30px"
+      placeholder="Username"
+    /><br />
+    <input
+      [(ngModel)]="password"
+      style="margin-top: 30px; margin-left: 45px; height: 30px"
+      type="password"
+      placeholder="password"
+    />
+    <p style="color: red; margin-left: 50px">{{ error }}</p>
+    <br />
+    <button (click)="login()" style="margin-top: 0px; margin-left: 100px">
+      Login
+    </button>
+  </div>
+</div>

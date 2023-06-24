@@ -1,0 +1,71 @@
+<div>
+  <div
+    style="
+      background-color: rgb(34, 191, 34);
+      width: 1200px;
+      height: 700px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    "
+  >
+    <div
+      style="
+        width: 1200px;
+        height: 60px;
+        display: flex;
+        background-color: rgb(22, 22, 22);
+        color: white;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      "
+    >
+      <p (click)="goto('admin')" style="margin-right: 50px; margin-left: 40px">
+        Pjeset
+      </p>
+      <p (click)="goto('adminticket')">Ticket</p>
+      <p (click)="goto('ticketperstudnet')" style="margin-left: 50px">
+        Ticket per student
+      </p>
+      <p (click)="goto('statistik')" style="margin-left: 50px">Statistika</p>
+      <p (click)="logout()" style="margin-left: 50px">Log out</p>
+    </div>
+  </div>
+  <div style="display: flex">
+    <div style="top: 140px; position: absolute">
+      <p>Tabela tregon numrin e ticket per secilen pjese</p>
+      <table border="1">
+        <thead>
+          <tr>
+            <td>Emri i pjese</td>
+            <td>Totali</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of tablerowpjes">
+            <td>{{ x.name }}</td>
+            <td>{{ x.totali }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="top: 140px; position: absolute; left: 480px">
+      <p>Tabela tregon numrin e ticket per secilen Student</p>
+      <table border="1">
+        <thead>
+          <tr>
+            <td>Emri i pjese</td>
+            <td>Totali</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of tablerowStudent">
+            <td>{{ x.name }}</td>
+            <td>{{ x.totali }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

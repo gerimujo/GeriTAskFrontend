@@ -1,0 +1,95 @@
+<div>
+  <div
+    style="
+      background-color: rgb(34, 191, 34);
+      width: 1200px;
+      height: 700px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    "
+  >
+    <div
+      style="
+        width: 1200px;
+        height: 60px;
+        display: flex;
+        background-color: rgb(22, 22, 22);
+        color: white;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      "
+    >
+      <p (click)="goto('admin')" style="margin-right: 50px; margin-left: 40px">
+        Pjeset
+      </p>
+      <p (click)="goto('adminticket')">Ticket</p>
+      <p (click)="goto('ticketperstudnet')" style="margin-left: 50px">
+        Ticket per student
+      </p>
+      <p (click)="goto('statistik')" style="margin-left: 50px">Statistika</p>
+      <p (click)="logout()" style="margin-left: 50px">Log out</p>
+    </div>
+  </div>
+  <p style="margin-left: 100px; font-size: 30px; position: absolute; top: 80px">
+    Kliko studentin per te cilin do te tregosh ticket
+  </p>
+  <div
+    style="
+      width: 1100px;
+      height: 400px;
+      border: 1px solid black;
+      margin-top: 140px;
+      position: absolute;
+      display: flex;
+    "
+  >
+    <div
+      style="
+        width: 300px;
+        height: 400px;
+        border: 1px black solid;
+        overflow: auto;
+      "
+    >
+      <p
+        *ngFor="let x of students"
+        style="
+          border: 1px black solid;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+        "
+        (click)="getTicketperstudnet(x.id)"
+      >
+        {{ x.username }}
+      </p>
+    </div>
+    <div
+      style="
+        width: 800px;
+        height: 400px;
+        border: 1px black solid;
+        overflow: hidden;
+      "
+    >
+      <table border="1">
+        <thead>
+          <tr>
+            <td *ngFor="let x of table" style="width: 160px">{{ x }}</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let y of tablerow">
+            <td>{{ y.pjeseName }}</td>
+            <td>{{ y.status }}</td>
+            <td>{{ y.studentName }}</td>
+            <td>{{ y.descrition }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

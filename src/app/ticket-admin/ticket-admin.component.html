@@ -1,0 +1,57 @@
+<div>
+  <div
+    style="
+      background-color: rgb(34, 191, 34);
+      width: 1200px;
+      height: 700px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    "
+  >
+    <div
+      style="
+        width: 1200px;
+        height: 60px;
+        display: flex;
+        background-color: rgb(22, 22, 22);
+        color: white;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      "
+    >
+      <p (click)="gotopart()" style="margin-right: 50px; margin-left: 40px">
+        Pjeset
+      </p>
+      <p>Ticket</p>
+      <p (click)="navigatetostudent()" style="margin-left: 50px">
+        Ticket per student
+      </p>
+      <p (click)="statistika()" style="margin-left: 50px">Statistika</p>
+      <p (click)="logout()" style="margin-left: 50px">Log out</p>
+    </div>
+    <table style="margin-top: 100px; margin-left: 150px" border="1">
+      <thead>
+        <tr>
+          <td style="width: 150px" *ngFor="let x of table">{{ x }}</td>
+          <td style="width: 250px">Operations</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let y of tablerow">
+          <td>{{ y.pjeseName }}</td>
+          <td>{{ y.status }}</td>
+          <td>{{ y.studentName }}</td>
+          <td>{{ y.descrition }}</td>
+          <td>
+            <button (click)="update(y.id)">Change Status</button
+            ><button (click)="deleteticket(y.id)" style="margin-left: 20px">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

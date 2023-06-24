@@ -1,0 +1,42 @@
+<div>
+  <div
+    style="
+      background-color: rgb(34, 191, 34);
+      width: 1200px;
+      height: 700px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    "
+  >
+    <div
+      style="
+        width: 1200px;
+        height: 60px;
+        display: flex;
+        background-color: rgb(22, 22, 22);
+        color: white;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      "
+    >
+      <p (click)="logout()" style="margin-left: 50px">Log out</p>
+    </div>
+    <table style="position: absolute; top: 150px" border="1">
+      <thead>
+        <tr>
+          <td *ngFor="let x of table" style="width: 160px">{{ x }}</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let y of tablerow">
+          <td>{{ y.pjeseName }}</td>
+          <td>{{ y.status }}</td>
+          <td>{{ y.studentName }}</td>
+          <td>{{ y.descrition }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
